@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Greeting />
+        <Greeting name="Ivor" numberOfMessages={51} />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           This is so {adjective}!
