@@ -20,6 +20,10 @@ const people = [{
   eyeColor: 'green'
 }];
 
+const displayAlert = () => {
+  alert('Hello!')
+};
+
 function App() {
   let adjective = 'cool';
   let url = "https://reactjs.org";
@@ -29,6 +33,7 @@ function App() {
       <header className="App-header">
         <Greeting name='Ivor' numberOfMessages={51} />
         <PeopleList people={people} />
+        <button onClick={displayAlert}>Click Me!</button>
         <p>
           This is so {adjective}!
         </p>
