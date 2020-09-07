@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import CounterButton from './CounterButton';
 import Greeting from './Greeting';
 import PeopleList from './PeopleList';
 import './App.css';
@@ -20,31 +21,11 @@ const people = [{
   eyeColor: 'green'
 }];
 
-const displayAlert = () => {
-  alert('Hello!')
-};
-
 function App() {
-  let adjective = 'cool';
-  let url = "https://reactjs.org";
-
   return (
     <div className="App">
       <header className="App-header">
-        <Greeting name='Ivor' numberOfMessages={51} />
-        <PeopleList people={people} />
-        <button onClick={displayAlert}>Click Me!</button>
-        <p>
-          This is so {adjective}!
-        </p>
-        <a
-          className="App-link"
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <CounterButton />
       </header>
     </div>
   );
