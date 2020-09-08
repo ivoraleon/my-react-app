@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Greeting(props) {
+export const Greeting = (props) => {
     const { name, numberOfMessages } = props;
 
     if(!name) {

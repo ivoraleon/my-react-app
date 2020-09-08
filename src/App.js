@@ -1,44 +1,41 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import CounterButton from './CounterButton';
-import CongratulationsMessage from './CongratulationsMessage';
-import Greeting from './Greeting';
-import PeopleList from './PeopleList';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import CounterButtonPage from './pages/CounterButtonPage';
+import { PeopleListPage } from './pages/PeopleListPage';
+// import CounterButton from './CounterButton';
+// import CongratulationsMessage from './CongratulationsMessage';
+// import Greeting from './Greeting';
+// import PeopleList from './PeopleList';
 import './App.css';
 
-const people = [{
-  name: 'John',
-  age: 40,
-  eyeColor: 'brown'
-},
-{
-  name: 'Helga',
-  age: 25,
-  eyeColor: 'blue'
-},
-{
-  name: 'Dwayne',
-  age: 55,
-  eyeColor: 'green'
-}];
-
 function App() {
-  const [numberOfClicks, setNumberOfClicks] = useState(0);
-  const [hideMessage, setHideMessage] = useState(false);
+  // const [numberOfClicks, setNumberOfClicks] = useState(0);
+  // const [hideMessage, setHideMessage] = useState(false);
 
-  const increment = () => setNumberOfClicks(numberOfClicks + 1);
+  // const increment = () => setNumberOfClicks(numberOfClicks + 1);
 
   return (
     <div className="App">
-      <header className="App-header">
-        {hideMessage
-          ? null
-          : <CongratulationsMessage 
-              numberOfClicks={numberOfClicks} 
-              threshold={10}
-              onHide={() => setHideMessage(true)} />}        
-        <CounterButton onIncrement={increment} numberOfClicks={numberOfClicks} />
-      </header>
+      <Router>
+        <Route path="/" exact>
+          <Link to="/counter">Go to Counter Page</Link><br />
+          <Link to="/people-list">Go to People List Page</Link>
+          <HomePage />
+        </Route>
+
+        <Route path="/counter">
+          <Link to="/">Go to Home Page</Link><br />
+          <Link to="/people-list">Go to People List Page</Link>
+          <CounterButtonPage />
+        </Route>
+
+        <Route path="/people-list">
+          <Link to="/">Go to Home Page</Link><br />
+          <Link to="/counter">Go to Counter Page</Link><br />
+          <PeopleListPage />
+        </Route>
+      </Router>
     </div>
   );
 }
